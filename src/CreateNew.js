@@ -5,8 +5,13 @@ const CreateNew = (props) => {
   const content = useField("text");
   const author = useField("text");
   const info = useField("text");
-  const { reset } = useField("button");
   const navigate = useNavigate();
+
+  const handleReset = () => {
+    info.reset();
+    author.reset();
+    content.reset();
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,8 +44,8 @@ const CreateNew = (props) => {
           url for more info
           <input {...info} />
         </div>
-        <button>create</button>
-        <button type="button" onClick={reset}>
+        <button type="submit">create</button>
+        <button type="button" onClick={handleReset}>
           reset
         </button>
       </form>
